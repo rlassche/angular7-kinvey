@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div class="panel panel-default">
-<!--       <div class="panel-error" *ngIf="errorMessasge">{{errorMessage}}</div>-->
-        <div class="panel-warning" >{{errorMessage}}</div>
+        <div class="panel-error">{{errorMessage}}</div>
         <div class="panel-heading">
           <h3 class="panel-title">Sign Up</h3>
         </div>
@@ -11,27 +10,27 @@
           <form (submit)="signup()">
             <div class="form-group">
               <label for="username">Username</label>
-              <input [(ngModel)]="username" name="username" type="text" placeholder="Username" class="form-control"/>
+              <input [(ngModel)]="username" name="username" type="text" placeholder="Username" class="form-control" />
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input [(ngModel)]="password" name="password" type="password" placeholder="Password" class="form-control"/>
+              <input [(ngModel)]="password" name="password" type="password" placeholder="Password" class="form-control" />
             </div>
             <div class="form-group">
               <label for="firstname">First Name</label>
-              <input [(ngModel)]="firstname" name="firstname" type="text" placeholder="First Name" class="form-control"/>
+              <input [(ngModel)]="firstname" name="firstname" type="text" placeholder="First Name" class="form-control" />
             </div>
             <div class="form-group">
               <label for="lastname">Last Name</label>
-              <input [(ngModel)]="lastname" name="lastname" type="text" placeholder="Last Name" class="form-control"/>
+              <input [(ngModel)]="lastname" name="lastname" type="text" placeholder="Last Name" class="form-control" />
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" [disabled]="errorMessage || username.length == 0 || password.length == 0" class="btn btn-primary">Submit</button>
           </form>
         </div>
         <div class="panel-footer">
           <div><a [routerLink]="['/login']">Already have an account? Login</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
