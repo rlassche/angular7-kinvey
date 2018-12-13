@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## NGX Bootstrap with sass
+
+Install bootstrap-sass and ng-bootstrap: `npm install ngx-bootstrap@latest bootstrap-sass --save`
+
+## Kinvey
+
+Install kinvey for angular `npm install --save kinvey-angular2-sdk`
