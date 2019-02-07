@@ -7,24 +7,32 @@
           <h3 class="panel-title">Sign Up</h3>
         </div>
         <div class="panel-body">
-          <form (submit)="signup()">
+          <form #signupForm="ngForm" (submit)="signup()">
             <div class="form-group">
               <label for="username">Username</label>
-              <input [(ngModel)]="username" name="username" type="text" placeholder="Username" class="form-control" />
+              <input [(ngModel)]="username" minlength="3" name="username" type="text" placeholder="Username" 
+                      class="form-control" required/>
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input [(ngModel)]="password" name="password" type="password" placeholder="Password" class="form-control" />
+              <input [(ngModel)]="password" minlength="3" name="password" type="password" 
+                     placeholder="Password" class="form-control" required/>
             </div>
             <div class="form-group">
               <label for="firstname">First Name</label>
-              <input [(ngModel)]="firstname" name="firstname" type="text" placeholder="First Name" class="form-control" />
+              <input [(ngModel)]="firstname" name="firstname" type="text" placeholder="First Name" class="form-control" required />
             </div>
             <div class="form-group">
               <label for="lastname">Last Name</label>
-              <input [(ngModel)]="lastname" name="lastname" type="text" placeholder="Last Name" class="form-control" />
+              <input [(ngModel)]="lastname" name="lastname" type="text" placeholder="Last Name" class="form-control" required />
             </div>
-            <button type="submit" [disabled]="errorMessage || username.length == 0 || password.length == 0" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input [(ngModel)]="email" name="email" type="email" placeholder="Email" class="form-control" required email />
+            </div>
+            <button type="submit" 
+                    [disabled]="signupForm.invalid " 
+                    class="btn btn-primary">Submit</button>
           </form>
         </div>
         <div class="panel-footer">

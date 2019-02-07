@@ -26,7 +26,17 @@ export class LoginComponent implements OnInit, OnChanges {
     this.error = undefined;
 
     Kinvey.User.login(this.username, this.password)
-      .then(() => {  console.log( 'login: okay' ); this.router.navigate(['/'])} )
+      .then(() => {  
+            console.log( 'login: okay' ); 
+            let activeUser = Kinvey.User.getActiveUser();
+            if( activeUser.isEmailVerified ) {
+              console.log( 'email is verified')
+              this.router.navigate(['/'])
+            } else {
+              this.error.message = 'You should verify you email!'
+              console.log( 'email is not verified')
+            }
+      } )
       .catch((error: Kinvey.BaseError) => {
         this.error = error;
         console.log( 'login: error is now', this.error)
