@@ -1,0 +1,27 @@
+<p>
+  deleteuser works!
+</p>
+
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-danger" *ngIf="error">{{error.message}}</div>
+        <div class="panel-heading">
+          <h3 class="panel-title">Delete User</h3>
+        </div>
+        <div class="panel-body">
+          <form (submit)="deleteUser()">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input [(ngModel)]="username" name="username" type="text" placeholder="Username" class="form-control"/>
+            </div>
+            <button type="submit" 
+                    [disabled]="!username" 
+                    class="btn btn-primary">Delete User</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
